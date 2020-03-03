@@ -146,6 +146,7 @@
 (require 'init-doom-modeline)
 (require 'init-keybindings)
 (require 'init-imenu)
+(require 'init-yasnippet)
 
 
 (when *is-a-mac*
