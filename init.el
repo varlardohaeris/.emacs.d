@@ -38,6 +38,7 @@
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 ;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
+(require 'init-use-package)
 (require 'init-exec-path) ;; Set up $PATH
 
 ;;----------------------------------------------------------------------------
@@ -137,6 +138,16 @@
 (require-package 'lua-mode)
 (require-package 'htmlize)
 (require-package 'dsvn)
+
+(require 'init-evil)
+(require 'init-treemacs)
+(require 'init-undo-tree)
+(require 'init-counsel-etags)
+(require 'init-doom-modeline)
+(require 'init-keybindings)
+(require 'init-imenu)
+
+
 (when *is-a-mac*
   (require-package 'osx-location))
 (unless (eq system-type 'windows-nt)

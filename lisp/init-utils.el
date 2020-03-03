@@ -76,6 +76,10 @@
         (error "Cannot open tramp file")
       (browse-url (concat "file://" file-name)))))
 
+(defun open-init-file()
+  "Open init.el."
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
 
 (provide 'init-utils)
 ;;; init-utils.el ends here

@@ -15,13 +15,17 @@
 
 ;;; Standard package repositories
 
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;; Official MELPA Mirror, in case necessary.
-  ;;(add-to-list 'package-archives (cons "melpa-mirror" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/")) t)
-  )
+;; (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+;;                     (not (gnutls-available-p))))
+;;        (proto (if no-ssl "http" "https")))
+;;   (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+;;   ;; Official MELPA Mirror, in case necessary.
+;;   ;;(add-to-list 'package-archives (cons "melpa-mirror" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/")) t)
+;;   )
+
+(setq package-archives '(("gnu" . "http://localhost/gnu/")
+                         ("org" . "http://localhost/org/")
+                         ("melpa" . "http://localhost/melpa/")))
 
 
 ;; Work-around for https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
@@ -64,6 +68,16 @@ locate PACKAGE."
 
 (setq package-enable-at-startup nil)
 (package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+
+(eval-when-compile
+  (require 'use-package))
+
+
 
 
 ;; package.el updates the saved version of package-selected-packages correctly only

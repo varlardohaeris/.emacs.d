@@ -80,6 +80,8 @@ instead."
 (when (maybe-require-package 'ivy-xref)
   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
+(use-package counsel-projectile
+  :ensure t)
 
 (provide 'init-ivy)
 ;;; init-ivy.el ends here

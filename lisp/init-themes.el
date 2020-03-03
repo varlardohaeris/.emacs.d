@@ -46,6 +46,9 @@
   (after-load 'dimmer
     (advice-add 'frame-set-background-mode :after (lambda (&rest args) (dimmer-process-all)))))
 
+(use-package dracula-theme
+  :init (load-theme 'dracula t)
+  :ensure t)
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
