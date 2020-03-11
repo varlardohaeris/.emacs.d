@@ -33,9 +33,16 @@
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(require 'init-elpa)      ;; Machinery for installing required packages
+(require 'init-elpa)      
 (require 'init-base)
+(require 'init-utils)
 (require 'init-theme)
+(require 'init-doom-modeline)
+(require 'init-evil)
+(require 'init-ivy)
+(require 'init-company)
+(require 'init-keybindings)
+
 (when (file-exists-p custom-file)
   (load custom-file))
 
