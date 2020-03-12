@@ -45,6 +45,7 @@
 (require 'init-company)
 (require 'init-hungry-delete)
 (require 'init-popwin)
+(require 'init-counsel-etags)
 (require 'init-keybindings)
 
 (when (file-exists-p custom-file)
