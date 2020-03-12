@@ -17,8 +17,7 @@
   "cp"  'evilnc-comment-or-uncomment-paragraphs
   "cr"  'comment-or-uncomment-region
   "cv"  'evilnc-toggle-invert-comment-line-by-line
-  "fed" 'open-init-file
-  "feR" 'load-file
+  "fed" 'been/open-init-file
   "ff"  'counsel-find-file
   "fr"  'counsel-recentf
   "fs"  'save-buffer

@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun open-init-file()
+(defun been/open-init-file()
   "Open init.el."
   (interactive)
   (find-file "~/.emacs.d/init.el"))
