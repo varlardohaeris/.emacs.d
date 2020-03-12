@@ -43,10 +43,10 @@
 (require 'init-org)
 (require 'init-hungry-delete)
 (require 'init-company)
-(require 'init-hungry-delete)
 (require 'init-popwin)
 (require 'init-counsel-etags)
 (require 'init-imenu)
+(require 'init-exec-path)
 (require 'init-keybindings)
 
 (when (file-exists-p custom-file)
