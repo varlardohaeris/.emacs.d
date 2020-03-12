@@ -40,7 +40,11 @@
 (require 'init-doom-modeline)
 (require 'init-evil)
 (require 'init-ivy)
+(require 'init-org)
+(require 'init-hungry-delete)
 (require 'init-company)
+(require 'init-hungry-delete)
+(require 'init-popwin)
 (require 'init-keybindings)
 
 (when (file-exists-p custom-file)

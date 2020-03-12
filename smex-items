@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ load-file
  describe-function
  describe-variable
  eval-last-sexp
  indent-region
  describe-key
  counsel-etags-find-tag-at-point
- ff-find-other-file
 )
 
 ;; ----- smex-data -----
@@ -26,7 +26,7 @@
  (projectile-find-file . 2)
  (evil-ret . 1)
  (eval-last-sexp . 48)
- (load-file . 2)
+ (load-file . 5)
  (indent-region . 14)
  (comment-dwim . 4)
  (imenu . 4)
