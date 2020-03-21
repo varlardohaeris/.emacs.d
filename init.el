@@ -52,6 +52,9 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(setq inhibit-startup-screen t)
+(switch-to-buffer "*scratch*")
+
 (provide 'init)
 
 ;; Local Variables:
