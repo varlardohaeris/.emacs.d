@@ -24,5 +24,8 @@
 
 (global-linum-mode 1)
 
+(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+(electric-pair-mode 1)
+
 (provide 'init-local)
 ;;; init-local.el ends here
