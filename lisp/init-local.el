@@ -22,5 +22,7 @@
     (push '("*compilation*" :position right :width 80 :noselect t) popwin:special-display-config)
     (popwin-mode 1)))
 
+(global-linum-mode 1)
+
 (provide 'init-local)
 ;;; init-local.el ends here
