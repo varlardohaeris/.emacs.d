@@ -48,6 +48,7 @@
 (require 'init-imenu)
 (require 'init-exec-path)
 (require 'init-keybindings)
+(require 'init-magit)
 
 (when (file-exists-p custom-file)
   (load custom-file))
