@@ -3,7 +3,9 @@
 ;;; Code:
 
 (use-package ivy
-  :ensure t)
+  :ensure t
+  :config
+  (setq ivy-use-selectable-prompt t))
 
 
 (use-package swiper
