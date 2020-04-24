@@ -22,7 +22,6 @@
     (push '("*compilation*" :position right :width 80 :noselect t) popwin:special-display-config)
     (popwin-mode 1)))
 
-(global-linum-mode 1)
 
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 (electric-pair-mode 1)
