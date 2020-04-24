@@ -5,6 +5,9 @@
 (use-package json-mode
   :ensure t)
 
+(add-to-list 'auto-mode-alist '("\\.\\(js\\|es6\\)\\(\\.erb\\)?\\'" . js2-mode))
+(add-to-list 'interpreter-mode-alist (cons "node" 'js2-mode))
+
 (use-package typescript-mode
   :ensure t)
 

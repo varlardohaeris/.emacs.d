@@ -50,6 +50,7 @@
 (require 'init-keybindings)
 (require 'init-magit)
 (require 'init-javascript)
+(require 'init-treemacs)
 
 (when (file-exists-p custom-file)
   (load custom-file))

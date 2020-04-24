@@ -24,8 +24,14 @@
 ;;   )
 
 (setq package-archives '(("gnu" . "http://localhost/gnu/")
-                         ("org" . "http://localhost/org/")
-                         ("melpa" . "http://localhost/melpa/")))
+                          ("org" . "http://localhost/org/")
+                          ("melpa" . "http://localhost/melpa-stable/")))
+
+;; (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+;; 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+
+;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;;                        ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 
 ;;; On-demand installation of packages
