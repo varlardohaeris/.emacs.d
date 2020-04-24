@@ -49,6 +49,7 @@
 (require 'init-exec-path)
 (require 'init-keybindings)
 (require 'init-magit)
+(require 'init-javascript)
 
 (when (file-exists-p custom-file)
   (load custom-file))
