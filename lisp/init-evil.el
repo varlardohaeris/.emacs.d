@@ -20,10 +20,21 @@
                                                   (interactive)
                                                   (evil-scroll-up nil)))
 
+  
   ;; page down with Ctrl-j
   (define-key evil-normal-state-map (kbd "C-j") (lambda()
                                                   (interactive)
                                                   (evil-scroll-down nil)))
+
+  (define-key evil-insert-state-map (kbd "C-c C-c") (lambda()
+						      (interactive)
+						      (evil-normal-state)))
+
+  
+  (define-key evil-insert-state-map (kbd "C-c C-c") (lambda()
+						      (interactive)
+						      (evil-normal-state)))
+
   (define-key evil-motion-state-map (kbd "C-]") 'counsel-etags-find-tag-at-point))
 
 (use-package evil-leader

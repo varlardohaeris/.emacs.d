@@ -19,5 +19,8 @@
 (use-package counsel-projectile
   :ensure t)
 
+(use-package smex
+  :ensure t)
+
 (provide 'init-ivy)
 ;;; init-ivy.el ends here
