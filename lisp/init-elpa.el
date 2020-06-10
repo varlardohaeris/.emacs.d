@@ -68,11 +68,6 @@ locate PACKAGE."
 ;;; Fire up package.el
 (package-initialize)
 
-(require-package 'use-package)
-(eval-when-compile
-  (require 'use-package))
-
-
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here

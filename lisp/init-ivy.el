@@ -2,25 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package ivy
-  :ensure t
-  :config
-  (setq ivy-use-selectable-prompt t))
+(require-package 'ivy)
+(setq ivy-use-selectable-prompt t)
 
-
-(use-package swiper
-  :ensure t)
+(require-package 'swiper)
 	     
-(use-package counsel
-  :ensure t
-  :config
-  (counsel-mode 1))
+(require-package 'counsel)
+(counsel-mode 1)
 
-(use-package counsel-projectile
-  :ensure t)
+(require-package 'counsel-projectile)
 
-(use-package smex
-  :ensure t)
+(require-package 'smex)
 
 (provide 'init-ivy)
 ;;; init-ivy.el ends here
