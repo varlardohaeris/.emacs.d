@@ -24,8 +24,8 @@
   "ft"  'treemacs
   "mm"  'evilmi-jump-items
   "pf"  'counsel-projectile
-  "ps"  'counsel-ag
-  "ss"  'swiper
+  "ps"  'been/counsel-ag-thing-at-point
+  "ss"  'been/swiper-thing-at-point
   "SPC" 'counsel-M-x
   "TAB" 'mode-line-other-buffer
   "wh"  'windmove-left
