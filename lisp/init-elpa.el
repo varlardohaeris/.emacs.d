@@ -25,7 +25,7 @@
 
 (setq package-archives '(("gnu" . "http://localhost/gnu/")
                           ("org" . "http://localhost/org/")
-                          ("melpa" . "http://localhost/melpa-stable/")))
+                          ("melpa" . "http://localhost/melpa/")))
 
 ;; (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 ;; 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
