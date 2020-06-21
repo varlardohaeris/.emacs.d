@@ -7,6 +7,11 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
+(defun been/open-zsh-file()
+  "Open init.el."
+  (interactive)
+  (find-file "~/.zshrc"))
+
 
 (defun been/ivy-with-thing-at-point (cmd)
   (let ((ivy-initial-inputs-alist

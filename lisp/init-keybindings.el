@@ -22,6 +22,7 @@
   "fr"  'counsel-recentf
   "fs"  'save-buffer
   "ft"  'treemacs
+  "fz"  'been/open-zsh-file
   "mm"  'evilmi-jump-items
   "pf"  'counsel-projectile
   "ps"  'been/counsel-ag-thing-at-point
