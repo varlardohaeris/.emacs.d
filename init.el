@@ -34,6 +34,7 @@
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (require 'init-elpa)      
+(require 'init-benchmarking)
 (require 'init-base)
 (require 'init-utils)
 (require 'init-theme)
@@ -56,8 +57,9 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(setq inhibit-startup-screen t)
-(switch-to-buffer "*scratch*")
+;; (setq inhibit-startup-screen t)
+;; (switch-to-buffer "*scratch*")
+(require 'init-sessions)
 
 (provide 'init)
 
