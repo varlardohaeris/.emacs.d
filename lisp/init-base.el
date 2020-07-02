@@ -17,6 +17,7 @@
 
 (global-linum-mode 1)
 (setq create-lockfiles nil)
+(setq company-dabbrev-downcase nil)
 
 (provide 'init-base)
 ;;; init-base.el ends here
