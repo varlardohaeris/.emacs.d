@@ -23,15 +23,15 @@
 ;;   ;;(add-to-list 'package-archives (cons "melpa-mirror" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/")) t)
 ;;   )
 
-(setq package-archives '(("gnu" . "http://localhost/gnu/")
-                          ("org" . "http://localhost/org/")
-                          ("melpa" . "http://localhost/melpa/")))
+;; (setq package-archives '(("gnu" . "http://localhost/gnu/")
+;;                           ("org" . "http://localhost/org/")
+;;                           ("melpa" . "http://localhost/melpa/")))
 
 ;; (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 ;; 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
-;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-;;                        ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(setq package-archives '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                       ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 
 ;;; On-demand installation of packages

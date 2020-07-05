@@ -54,6 +54,8 @@
 (require 'init-javascript)
 ;; (require 'init-haskell)
 (require 'init-treemacs)
+(require 'init-site-lisp)
+(require 'init-ocaml)
 
 (when (file-exists-p custom-file)
   (load custom-file))
