@@ -22,6 +22,10 @@
 ;;   ;; Official MELPA Mirror, in case necessary.
 ;;   ;;(add-to-list 'package-archives (cons "melpa-mirror" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/")) t)
 ;;   )
+;; (setq url-proxy-services
+;;       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+;; 	("http" . "127.0.0.1:7890")
+;; 	("https" . "127.0.0.1:7890")))
 
 ;; (setq package-archives '(("gnu" . "http://localhost/gnu/")
 ;;                           ("org" . "http://localhost/org/")
