@@ -34,9 +34,6 @@
 						    (interactive)
 						    (evil-normal-state)))
 
-;; (define-key evil-motion-state-map (kbd "C-]") 'counsel-etags-find-tag-at-point)
-(define-key evil-normal-state-map (kbd "C-]") 'counsel-gtags-dwim)
-(define-key evil-normal-state-map (kbd "C-t") 'counsel-gtags-go-backward)
 
 
 

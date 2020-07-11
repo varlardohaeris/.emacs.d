@@ -28,6 +28,8 @@
   "ps"  'been/counsel-ag-thing-at-point
   "ss"  'been/swiper-thing-at-point
   "SPC" 'counsel-M-x
+  "tt"  'counsel-gtags-dwim
+  "tb"  'counsel-gtags-go-forward
   "TAB" 'mode-line-other-buffer
   "wh"  'windmove-left
   "wl"  'windmove-right

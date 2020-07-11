@@ -57,6 +57,7 @@
 (require 'init-ocaml)
 (require 'init-ruby)
 (require 'init-rails)
+(require 'init-common-lisp)
 
 (when (file-exists-p custom-file)
   (load custom-file))
