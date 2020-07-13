@@ -25,8 +25,10 @@
   "fz"  'been/open-zsh-file
   "mm"  'evilmi-jump-items
   "pf"  'counsel-projectile
-  "ps"  'been/counsel-ag-thing-at-point
-  "ss"  'been/swiper-thing-at-point
+  "ps"  'counsel-ag
+  "pS"  'been/counsel-ag-thing-at-point
+  "ss"  'swiper
+  "sS"  'been/swiper-thing-at-point
   "SPC" 'counsel-M-x
   "tt"  'counsel-gtags-dwim
   "tb"  'counsel-gtags-go-forward

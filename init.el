@@ -52,7 +52,7 @@
 (require 'init-keybindings)
 (require 'init-magit)
 (require 'init-javascript)
-;; (require 'init-haskell)
+(require 'init-haskell)
 (require 'init-treemacs)
 (require 'init-ocaml)
 (require 'init-ruby)
