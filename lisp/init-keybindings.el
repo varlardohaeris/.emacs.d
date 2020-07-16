@@ -31,7 +31,7 @@
   "sS"  'been/swiper-thing-at-point
   "SPC" 'counsel-M-x
   "tt"  'counsel-gtags-dwim
-  "tb"  'counsel-gtags-go-forward
+  "tb"  'counsel-gtags-go-backward
   "TAB" 'mode-line-other-buffer
   "wh"  'windmove-left
   "wl"  'windmove-right
