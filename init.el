@@ -58,6 +58,7 @@
 (require 'init-ruby)
 (require 'init-rails)
 (require 'init-common-lisp)
+(require 'init-agda)
 
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -73,3 +74,4 @@
 ;; no-byte-compile: t
 ;; End:
 ;;; init.el ends here
+
