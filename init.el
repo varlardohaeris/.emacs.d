@@ -59,6 +59,7 @@
 (require 'init-rails)
 (require 'init-common-lisp)
 (require 'init-agda)
+(require 'init-nasm)
 
 (when (file-exists-p custom-file)
   (load custom-file))
