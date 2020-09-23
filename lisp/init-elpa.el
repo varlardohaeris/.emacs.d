@@ -3,6 +3,8 @@
 ;;; Code:
 
 (require 'package)
+;;Disable package signature checking
+(setq package-check-signature nil) 
 
 
 ;;; Install into separate package dirs for each Emacs version, to prevent bytecode incompatibility
@@ -31,11 +33,9 @@
 ;;                           ("org" . "http://localhost/org/")
 ;;                           ("melpa" . "http://localhost/melpa/")))
 
-;; (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-;; 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
-(setq package-archives '(("gnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                       ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 
 ;;; On-demand installation of packages
