@@ -60,6 +60,7 @@
 (require 'init-common-lisp)
 (require 'init-agda)
 (require 'init-nasm)
+(require 'init-restart-emacs)
 
 (when (file-exists-p custom-file)
   (load custom-file))
