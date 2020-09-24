@@ -18,7 +18,7 @@ cookies
 /newsticker
 \#*
 /elpa
-/elpa-*
+/elpa-*/**/.elc
 /swank
 /.mc-lists.el
 /var

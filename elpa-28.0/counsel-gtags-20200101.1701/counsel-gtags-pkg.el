@@ -1,0 +1,2 @@
+;;; Generated package description from /Users/been/.emacs.d/elpa-28.0/counsel-gtags-20200101.1701/counsel-gtags.el  -*- no-byte-compile: t -*-
+(define-package "counsel-gtags" "20200101.1701" "ivy for GNU global" '((emacs "25.1") (counsel "0.8.0") (seq "1.0")) :commit "5d2a8c2c2d358e374a576cf8a3a67f7997a8839b" :authors '(("Syohei YOSHIDA" . "syohex@gmail.com") ("Felipe Lema" . "felipelema@mortemale.org")) :maintainer '("Syohei YOSHIDA" . "syohex@gmail.com") :url "https://github.com/FelipeLema/emacs-counsel-gtags")
