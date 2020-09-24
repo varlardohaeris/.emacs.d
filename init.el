@@ -61,6 +61,8 @@
 (require 'init-agda)
 (require 'init-nasm)
 (require 'init-restart-emacs)
+(require 'init-lsp-mode)
+(require 'init-c-c++)
 
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -73,7 +75,7 @@
 
 ;; Local Variables:
 ;; coding: utf-8
-;; no-byte-compile: t
+;; no-byte-compile: 
 ;; End:
 ;;; init.el ends here
 
