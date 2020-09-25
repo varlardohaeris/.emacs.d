@@ -33,11 +33,11 @@
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(require 'init-elpa)      
-(require 'init-benchmarking)
 (require 'init-base)
 (require 'init-utils)
 (require 'init-site-lisp)
+(require 'init-elpa)      
+(require 'init-benchmarking)
 (require 'init-theme)
 (require 'init-doom-modeline)
 (require 'init-evil)
@@ -63,13 +63,12 @@
 (require 'init-restart-emacs)
 (require 'init-lsp-mode)
 (require 'init-c-c++)
-
+(require 'init-sessions)
 (when (file-exists-p custom-file)
   (load custom-file))
 
 ;; (setq inhibit-startup-screen t)
 ;; (switch-to-buffer "*scratch*")
-(require 'init-sessions)
 
 (provide 'init)
 
