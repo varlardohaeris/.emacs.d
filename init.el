@@ -32,6 +32,7 @@
 (require 'init-info-colors)
 (require 'init-beacon)
 (require 'init-nyan-mode)
+(require 'init-command-log)
 ;; (when (file-exists-p custom-file)
 ;;  (load custom-file))
 (provide 'init)
