@@ -28,5 +28,15 @@
 
 (my-add-subdirs-to-load-path (file-name-as-directory my-site-lisp-dir))
 
+(add-to-list 'load-path "~/.emacs.d/site-lisp/magit/lisp")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/transient/lisp")
+
+(add-to-list 'load-path "~/.emacs.d/site-lisp/treemacs/src/elisp")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/treemacs/src/extra")
+
+(add-to-list 'load-path "~/.emacs.d/site-lisp/utop/src/top")
+
+
+
 (provide 'init-site-lisp)
 ;;; init-site-lisp.el ends here

@@ -6,7 +6,7 @@
 (scroll-bar-mode -1)
 (add-to-list 'exec-path "/usr/local/bin")
 (set-keyboard-coding-system nil)
-(menu-bar-mode -1)
+;; (menu-bar-mode -1)
 (setq make-backup-files nil)
 
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
@@ -29,14 +29,9 @@
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
-
 (add-to-list 'default-frame-alist
-	     '(font . "JetBrains Mono-20"))
+	     '(font . "JetBrains Mono Medium-18"))
+
 
 (provide 'init-base)
 ;;; init-base.el ends here

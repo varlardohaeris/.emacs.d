@@ -1,7 +1,7 @@
 ;;; init-treemacs.el --- config treemacs
 ;;; Commentary:
 ;;; Code:
-;; (require 'use-package)
+(require 'treemacs)
 
 (require 'treemacs-evil)
 (require 'treemacs-projectile)
