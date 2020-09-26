@@ -8,13 +8,14 @@
 (set-keyboard-coding-system nil)
 (menu-bar-mode -1)
 (setq make-backup-files nil)
-
+(set-frame-parameter nil 'alpha '(90 .100))
+(set-cursor-color "green2")
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 (electric-pair-mode 1)
 
 (setq-default initial-scratch-message
               (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
-
+(global-hl-line-mode 1)
 (global-linum-mode 1)
 (setq create-lockfiles nil)
 (setq company-dabbrev-downcase nil)

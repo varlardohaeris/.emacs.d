@@ -26,12 +26,13 @@
 (require 'init-c-c++)
 (require 'init-which-key)
 (require 'init-smooth-scrolling)
+(require 'init-dashboard)
 ;; (require 'init-sessions)
 
 ;; (when (file-exists-p custom-file)
 ;;  (load custom-file))
 
-(setq inhibit-startup-screen t)
-(switch-to-buffer "*scratch*")
+;; (setq inhibit-startup-screen t)
+;; (switch-to-buffer "*scratch*")
 
 (provide 'init)
