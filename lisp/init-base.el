@@ -6,7 +6,7 @@
 (scroll-bar-mode -1)
 (add-to-list 'exec-path "/usr/local/bin")
 (set-keyboard-coding-system nil)
-;; (menu-bar-mode -1)
+(menu-bar-mode -1)
 (setq make-backup-files nil)
 
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
