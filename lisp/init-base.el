@@ -37,6 +37,12 @@
 (add-to-list 'default-frame-alist
 	     '(font . "JetBrains Mono Medium-18"))
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(require 'saveplace)
+(save-place-mode 1)
+(setq save-place-file (expand-file-name "saveplace" user-emacs-directory))
+(setq-default save-place t)
 
 (provide 'init-base)
 ;;; init-base.el ends here
