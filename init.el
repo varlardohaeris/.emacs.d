@@ -29,6 +29,7 @@
 (require 'init-posframe)
 (require 'init-rainbow-delimiters)
 (require 'init-info-colors)
+(require 'init-beacon)
 ;; (when (file-exists-p custom-file)
 ;;  (load custom-file))
 (provide 'init)
