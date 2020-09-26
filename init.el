@@ -22,6 +22,7 @@
 (require 'init-treemacs)
 (require 'init-ocaml)
 (require 'init-lsp-mode)
+(require 'init-prog)
 (require 'init-c-c++)
 (require 'init-which-key)
 (require 'init-smooth-scrolling)

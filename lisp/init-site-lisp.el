@@ -36,7 +36,5 @@
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/utop/src/top")
 
-
-
 (provide 'init-site-lisp)
 ;;; init-site-lisp.el ends here
