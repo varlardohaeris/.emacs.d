@@ -1,5 +1,4 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-
 (require 'init-base)
 (require 'init-utils)
 (require 'init-site-lisp)
@@ -27,6 +26,7 @@
 (require 'init-which-key)
 (require 'init-smooth-scrolling)
 (require 'init-dashboard)
+(require 'init-posframe)
 ;; (require 'init-sessions)
 
 ;; (when (file-exists-p custom-file)
