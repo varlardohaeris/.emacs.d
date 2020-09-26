@@ -1,0 +1,71 @@
+* eglot-jl
+
+This is a simple package to make using [[https://github.com/julia-vscode/LanguageServer.jl][Julia's language server]] easier
+with [[https://github.com/joaotavora/eglot][eglot]]. It can be installed from [[https://melpa.org/#/eglot-jl][melpa]] by [[https://melpa.org/#/getting-started][adding melpa to your
+~package-archives~ ]] and doing =M-x package-install RET eglot-jl RET=
+with Emacs 26.1+.
+
+After installation, ~eglot-jl-init~ will load support for the Julia
+language server into eglot and project.el. If ~eglot-jl-init~ has been
+run in your emacs session, running ~eglot~ in a ~julia-mode~ buffer
+will start a language server for the [[https://docs.julialang.org/en/v1.1/manual/code-loading/#Project-environments-1][Julia project]] to which the buffer
+belongs. The first time ~eglot~ is run, the Julia language server will
+be downloaded and installed into the default depot (e.g. =~/.julia=)
+in its own isolated project environment. This may take a long time, so
+~eglot-connect-timeout~ should be increased for this first run.
+
+** Capabilities
+Completion:
+
+[[./images/completion.gif]]
+
+Show help and signatures in the minibuffer:
+
+[[./images/minibuffer_help.gif]]
+
+Show docstring for symbol at point (~eglot-help-at-point~):
+
+[[./images/eglot-help-at-point.gif]]
+
+Jump to definitions of symbol at point (~xref-find-definitions~):
+
+[[./images/xref-find-definitions.gif]]
+
+Rename symbol at point (~eglot-rename~):
+
+[[./images/eglot-rename.gif]]
+
+Linting:
+
+[[./images/lint.gif]]
+
+Jump to symbol in document ~imenu~:
+
+[[./images/imenu.gif]]
+
+** FAQ
+*** Why am I receiving ~Error running timer: (error "[eglot] Timed out")~ messages?
+The most likely reason is that [[https://github.com/julia-vscode/SymbolServer.jl/issues/56][SymbolServer.jl takes a very long time
+to process project dependencies]]. This is a one-time process that
+shouldn't cause issues once the dependencies are cached, however it
+can take over a minute to process each dependency. By default, eglot
+will only wait wait 30 seconds for a language server to be ready; this
+is controlled by =eglot-connect-timeout=.
+
+To work around this issue, you can:
+
+1. Set =eglot-connect-timeout= to a very high value.
+   - Progress of the SymbolServer can be monitored in the =*EGLOT
+     (ProjectName/julia-mode) stderr*= buffer.
+2. Run the following, from your project directory:
+
+#+begin_src sh
+  julia --project=path/to/eglot-jl/ path/to/eglot-jl/eglot-jl.jl
+#+end_src
+
+The SymbolServer is finished with caching dependencies when it
+displays:
+
+#+begin_quote
+[ Info: Received new data from Julia Symbol Server.
+#+end_quote
