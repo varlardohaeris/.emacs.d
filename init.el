@@ -33,6 +33,7 @@
 (require 'init-beacon)
 (require 'init-nyan-mode)
 (require 'init-command-log)
+(require 'init-dired-posframe)
 ;; (when (file-exists-p custom-file)
 ;;  (load custom-file))
 (provide 'init)
