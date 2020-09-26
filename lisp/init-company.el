@@ -9,6 +9,15 @@
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
+(setq company-tooltip-align-annotations t)
+(setq company-idle-delay 0)
+(setq company-echo-delay 0)
+(setq company-minimum-prefix-length 2)
+(setq company-require-match nil)
+(setq company-dabbrev-code-ignore-case nil)
+(setq company-show-numbers t)
 
+(require 'company-box)
+(add-hook 'company-mode-hook 'company-box-mode)
 (provide 'init-company)
 ;;; init-company.el ends here
