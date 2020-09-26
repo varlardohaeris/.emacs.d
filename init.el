@@ -30,6 +30,7 @@
 (require 'init-rainbow-delimiters)
 (require 'init-info-colors)
 (require 'init-beacon)
+(require 'init-nyan-mode)
 ;; (when (file-exists-p custom-file)
 ;;  (load custom-file))
 (provide 'init)
