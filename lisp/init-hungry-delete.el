@@ -1,7 +1,7 @@
 ;;; init-hungry-delete.el --- Add hungry-delete
 ;;; Commentary:
 ;;; Code:
-(require-package 'hungry-delete)
+(require 'hungry-delete)
 (global-hungry-delete-mode)
 
 (provide 'init-hungry-delete)

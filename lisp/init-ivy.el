@@ -2,17 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'ivy)
+(require 'ivy)
 (setq ivy-use-selectable-prompt t)
 
-(require-package 'swiper)
+(require 'swiper)
 	     
-(require-package 'counsel)
+(require 'counsel)
 (counsel-mode 1)
 
-(require-package 'counsel-projectile)
+(require 'counsel-projectile)
 
-(require-package 'smex)
+(require 'smex)
 
 (provide 'init-ivy)
 ;;; init-ivy.el ends here

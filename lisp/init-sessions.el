@@ -33,7 +33,7 @@
 (setq-default history-length 1000)
 (add-hook 'after-init-hook 'savehist-mode)
 
-(require-package 'session)
+(require 'session)
 
 (setq session-save-file (expand-file-name ".session" user-emacs-directory))
 (setq session-name-disable-regexp "\\(?:\\`'/tmp\\|\\.git/[A-Z_]+\\'\\)")

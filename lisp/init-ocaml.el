@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'tuareg)
+(require 'tuareg)
 
 (after-load 'tuareg-mode
   (add-hook 'tuareg-mode-hook #'electric-pair-local-mode)
@@ -19,7 +19,7 @@
 ;; Use opam switch to lookup ocamlmerlin binary
 (setq merlin-command 'opam)
 
-(require-package 'utop)
+(require 'utop)
 
 (provide 'init-ocaml)
 ;;; init-ocaml.el ends here

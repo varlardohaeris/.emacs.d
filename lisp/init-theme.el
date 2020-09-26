@@ -1,7 +1,10 @@
-(add-to-list 'default-frame-alist
-	     '(font . "JetBrains Mono-16"))
+;;; init-theme.el --- Some base config
+;;; Commentary:
+;;; Code:
 
-(require-package 'dracula-theme)
+(require 'dracula-theme)
 (load-theme 'dracula t)
 
 (provide 'init-theme)
+
+;;; init-theme.el ends here

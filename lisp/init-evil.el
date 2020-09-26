@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'evil)
+(require 'evil)
 
 (evil-mode 1)
 
@@ -38,17 +38,17 @@
 
 
 
-(require-package 'evil-leader)
+(require 'evil-leader)
 
 (global-evil-leader-mode)
 
-(require-package 'evil-matchit)
+(require 'evil-matchit)
 (global-evil-matchit-mode 1)
 
-(require-package 'evil-surround)
+(require 'evil-surround)
 (global-evil-surround-mode)
 
-(require-package 'evil-nerd-commenter)
+(require 'evil-nerd-commenter)
 (evilnc-default-hotkeys)
 
 

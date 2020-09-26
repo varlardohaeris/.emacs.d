@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'exec-path-from-shell)
+(require 'exec-path-from-shell)
 
 (when (or (memq window-system '(mac ns x))
           (unless (memq system-type '(ms-dos windows-nt))

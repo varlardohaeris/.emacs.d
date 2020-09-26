@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'imenu-list)
+(require 'imenu-list)
 (setq imenu-list-focus-after-activation t)
 
 (provide 'init-imenu)

@@ -1,7 +1,7 @@
 ;;; init-company.el --- Completion with company -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-(require-package 'company)
+(require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 
 (with-eval-after-load 'company
