@@ -15,7 +15,8 @@
 (require 'init-keybindings)
 (require 'init-javascript)
 (require 'init-common-lisp)
-(require 'init-agda)
+(when *is-a-mac*
+  (require 'init-agda))
 (require 'init-nasm)
 (require 'init-restart-emacs)
 (require 'init-magit)
