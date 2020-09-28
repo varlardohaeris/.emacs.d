@@ -5,7 +5,7 @@
 (require 'ivy-posframe)
 
 (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display)))
-(setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-bottom-window-center)))
+(setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
 
 (ivy-posframe-mode 1)
 (provide 'init-posframe)

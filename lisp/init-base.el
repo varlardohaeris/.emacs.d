@@ -44,5 +44,10 @@
 (setq save-place-file (expand-file-name "saveplace" user-emacs-directory))
 (setq-default save-place t)
 
+
+(setq frame-title-format
+      (list (format "%s %%S: %%j " (system-name))
+            '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
 (provide 'init-base)
 ;;; init-base.el ends here
