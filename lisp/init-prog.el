@@ -25,5 +25,7 @@
 
 (add-hook 'flycheck-mode 'flycheck-popup-tip-mode)
 
+(require 'smartparens-config)
+(smartparens-global-mode)
 (provide 'init-prog)
 ;;; init-prog.el ends here
