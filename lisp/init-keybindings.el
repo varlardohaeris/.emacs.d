@@ -7,6 +7,7 @@
 (evil-leader/set-leader "SPC")
 
 (evil-leader/set-key
+  "al"  'clm/toggle-command-log-buffer
   "bb"  'ivy-switch-buffer
   "bi"  'imenu-list-smart-toggle
   "cd"  'comment-dwim

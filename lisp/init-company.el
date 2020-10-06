@@ -17,7 +17,17 @@
 (setq company-dabbrev-code-ignore-case nil)
 (setq company-show-numbers t)
 
+(require 'company-dabbrev)
+(push 'company-dabbrev company-backends)
+(setq company-dabbrev-char-regexp "[\\.0-9a-z-_'/]")
+(setq company-dabbrev-code-other-buffers 'all)
+(setq company-dabbrev-code-everywhere t)
+
 (require 'company-box)
 (add-hook 'company-mode-hook 'company-box-mode)
+
+(require 'company-files)
+(push 'company-files company-backends)
+
 (provide 'init-company)
 ;;; init-company.el ends here

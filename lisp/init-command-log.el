@@ -4,6 +4,7 @@
 
 (require 'command-log-mode)
 
+;; C-c o to toggle command-log view
 (provide 'init-command-log)
 
 ;;; init-command-log.el ends here
