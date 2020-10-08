@@ -24,7 +24,7 @@
 
 (require 'yasnippet)
 (require 'yasnippet-snippets)
-(setq yas-snippet-dirs '("~/.emacs.d/site-lisp/yasnippet-snippets"))
+(setq yas-snippet-dirs '("~/.emacs.d/site-lisp/yasnippet-snippets/snippets"))
 
 (provide 'init-lsp-mode)
 ;;; init-lsp-mode.el ends here
