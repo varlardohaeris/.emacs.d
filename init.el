@@ -25,6 +25,7 @@
 (require 'init-lsp-mode)
 (require 'init-prog)
 (require 'init-c-c++)
+(require 'init-python)
 (require 'init-which-key)
 (require 'init-smooth-scrolling)
 (require 'init-dashboard)
