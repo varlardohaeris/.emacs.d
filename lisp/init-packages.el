@@ -1,6 +1,39 @@
-;;; init-site-lisp.el --- Support elisp manually installed in the site-lisp dir -*- lexical-binding: t -*-
+;;; init-packages.el 
 ;;; Commentary:
 ;;; Code:
+
+;;; Init Packages
+(package-initialize)
+
+(require 'package)
+(require 'cl-lib) ; Common Lisp
+
+(defconst *is-a-mac* (eq system-type 'darwin))
+
+(if *is-a-mac*
+    (setq url-proxy-services
+	  '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+            ("http" . "127.0.0.1:7890")
+            ("https" . "127.0.0.1:7890")))
+  (setq url-proxy-services
+	'(("no_proxy" . "^\\(localhost\\|10.*\\)")
+          ("http" . "192.168.0.102:7890")
+          ("https" . "192.168.0.102:7890"))))
+
+(setq package-archives '(("gnu" . "http://mirrors.bfsu.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.bfsu.edu.cn/elpa/melpa/")))
+
+;;; Install into separate package dirs for each Emacs version, to prevent bytecode incompatibility
+(setq package-user-dir
+      (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
+                        user-emacs-directory))
+
+;;; Init Use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(setq use-package-hook-name-suffix nil)
+
 
 ;;; Set load path
 
@@ -36,5 +69,5 @@
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/utop/src/top")
 
-(provide 'init-site-lisp)
-;;; init-site-lisp.el ends here
+(provide 'init-packages)
+;;; init-packages.el ends here
