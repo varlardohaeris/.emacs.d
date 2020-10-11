@@ -1,0 +1,399 @@
+\input texinfo    @c -*- texinfo -*-
+
+@c %**start of header
+@setfilename bnf-mode.info
+@settitle BNF Mode User Manual
+@documentencoding UTF-8
+@documentlanguage en_US
+@c %**end of header
+
+@copying
+@ifnottex
+BNF Mode is a GNU Emacs major mode for editing BNF grammars.
+Presently it provides basic syntax and font-locking for BNF files.
+BNF notation is supported exactly form as it was first announced in
+the ALGOL 60 report.
+
+@noindent
+This manual is for BNF Mode version 0.4.5.
+@end ifnottex
+
+Copyright @copyright{} 2019-2020 Free Software Foundation, Inc.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being “A GNU Manual,”
+and with the Back-Cover Texts as in (a) below. A copy of the license
+is included in the section entitled “GNU Free Documentation License.”
+
+(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+modify this GNU manual.”
+@end quotation
+@end copying
+
+@dircategory Emacs
+@direntry
+* BNF Mode: (bnf-mode).         Major mode for editing BNF grammars.
+@end direntry
+
+@finalout
+@titlepage
+@title BNF Mode User Manual
+@subtitle for version 0.4.5
+@author Serghei Iakovlev
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@ifnottex
+@node Top
+@top BNF Mode User Manual
+@end ifnottex
+
+@menu
+* Introduction::     The mode description and concepts.
+* Installation::     The ways of instalation BNF Mode.
+* Usage::            BNF Mode usage.
+* Customizing::      Customizing BNF Mode.
+* Project Links::    Some important project links.
+* Bibliography::     External resources used in the project.
+* Index::            Complete index.
+* Variable Index::   Variable index.
+
+@detailmenu
+--- The Detailed Node Listing ---
+
+Installation
+
+* Installing from Elpa or Melpa::
+* Installing using El-get::
+* Installing from the Git Repository::
+
+
+Project Links
+
+* Bugs Tracker::
+* Change Log::
+
+@end detailmenu
+
+@end menu
+
+@node Introduction
+@chapter Introduction
+
+BNF Mode is a GNU Emacs major mode for editing BNF grammars.
+Presently it provides basic syntax and font-locking for BNF files.
+BNF notation is supported exactly form as it was first announced in
+the ALGOL 60 report.
+
+Bellow canonical BNF notation represented with a BNF is presented.  The syntax of the BNF has been carefully copied from Revised ALGOL 60 report.  For more see @url{http://www.masswerk.at/algol60/report.htm}.
+
+@example
+<syntax>         ::= <rule> | <rule> <syntax>
+<rule>           ::= <opt-ws> < <rule-name> > <opt-ws>
+                     ::= <opt-ws> <expression> <line-end>
+<opt-ws>         ::= <space> <opt-ws> | <empty>
+<expression>     ::= <list> | <list> <opt-ws> <or> <opt-ws>
+                     <expression>
+<line-end>       ::= <opt-ws> <EOL> | <line-end> <line-end>
+<list>           ::= <term> | <term> <opt-ws> <list>
+<term>           ::= <literal> | < <rule-name> >
+<literal>        ::= <character> <text>
+<character>      ::= <letter> | <digit> | <symbol>
+<letter>         ::= A | B | C | D | E | F | G | H | I | J | K | L |
+                     M | N | O | P | Q | R | S | T | U | V | W | X |
+                     Y | Z | a | b | c | d | e | f | g | h | i | j |
+                     k | l | m | n | o | p | q | r | s | t | u | v |
+                     w | x | y | z
+<digit>          ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<symbol>         ::= <or>  | <space>   | ! | # | $ | % | & | ( | ) |
+                     * | + | @comma{} | - | . | / | : | ~ | > | = | < | ? |
+                     @atchar{} | [ | @backslashchar{} | ] | ^ | _ | ` | ' | " | @{ | @} | ;
+<rule-name>      ::= <letter> | <rule-name> <rule-char>
+<rule-char>      ::= <letter> | <digit> | -
+<space>          ::= <space, tab or new line character>
+<or>             ::= |
+<empty>          ::=
+@end example
+
+@node Installation
+@chapter Installation
+
+@cindex Installation
+
+BNF Mode known to work with GNU Emacs 24.3 and later.  BNF Mode may
+work with older versions of Emacs, or with other flavors of Emacs
+(e.g. XEmacs) but this is @i{not} guaranteed.  Bug reports for problems
+related to using BNF Mode with older versions of Emacs will most like
+not be addressed.
+
+@menu
+* Installing from Elpa or Melpa::
+* Installing using El-get::
+* Installing from the Git Repository::
+@end menu
+
+@node Installing from Elpa or Melpa
+@section Installing from Elpa or Melpa
+
+BNF Mode is available from Elpa, Melpa and Melpa-Stable.  If you
+haven't used Emacs' package manager before, then it is high time you
+familiarize yourself with it by reading the documentation in the Emacs
+manual, see @ref{Packages,,,emacs,}.  Then add one of the archives to
+@code{package-archives}:
+
+@cindex Elpa, installation
+@itemize
+@item
+To use Elpa:
+@end itemize
+
+@lisp
+(require 'package)
+(package-initialize)
+@end lisp
+
+@cindex Melpa, installation
+@itemize
+@item
+For those who want only formal, tagged releases use Melpa Stable:
+@end itemize
+
+@lisp
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+@end lisp
+
+@itemize
+@item
+For those who want rolling releases as they happen use Melpa:
+@end itemize
+
+@lisp
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+@end lisp
+
+Melpa tracks BNF Mode's Git repository and updates relatively soon
+after each commit or formal release.  For more detail on setting up
+see @uref{https://melpa.org/#/getting-started, MELPA Getting Started}.
+
+Once you have added your preferred archive, you need to update the
+local package list using @kbd{M-x} @code{package-refresh-contents}
+@kbd{RET}.  Finally, use @kbd{M-x} @code{package-list-packages}
+@kbd{RET} to get to the package listing and install @code{bnf-mode}
+from there.
+
+There are several ways to install @code{bnf-mode} after package
+initialization:
+
+@itemize
+@item
+You can install @code{bnf-mode} manually by adding following to your
+init file:
+@end itemize
+
+@lisp
+(unless (package-installed-p 'bnf-mode)
+    (package-refresh-contents)
+    (package-install 'bnf-mode))
+@end lisp
+
+@cindex Cask, installation
+@itemize
+@item
+To use @uref{https://cask.github.io/, Cask} add following to your
+@code{Cask} file:
+@end itemize
+
+@lisp
+(source melpa)
+(depends-on "bnf-mode")
+@end lisp
+
+@itemize
+@item
+To install @code{bnf-mode} using @code{use-package} add following to
+your init file:
+@end itemize
+
+@lisp
+(use-package bnf-mode
+  :ensure t
+  ;; To use MELPA Stable use ":pin mepla-stable",
+  ;; to use ELPA remove ":pin" line
+  :pin melpa
+  :mode "\\.bnf\\'")
+@end lisp
+
+@node Installing using El-get
+@section Installing using El-get
+
+If you use el-get, just create a recipe file @code{bnf.rcp}:
+
+@lisp
+(:name bnf-mode
+ :website "https://github.com/sergeyklay/bnf-mode"
+ :description "BNF Mode: A major mode for editing BNF grammars"
+ :type github
+ :pkgname "sergeyklay/bnf-mode")
+@end lisp
+
+Then add it to a directory present in @code{el-get-recipe-path}.
+Then, use @kbd{M-x} @code{el-get-install} @kbd{RET} @code{bnf-mode}
+@kbd{RET} or add to your init file:
+
+@lisp
+(el-get-bundle bnf-mode)
+@end lisp
+
+@node Installing from the Git Repository
+@section Installing from the Git Repository
+
+BNF Mode depends only on the @code{cl-lib}, which is bundled with GNU
+Emacs.  Thus you don't have to install any additional library to
+satisfy BNF Mode dependencies.  Below are simple steps to install BNF
+Mode using manual approach:
+
+Clone the BNF Mode repository:
+
+@example
+$ git clone https://github.com/sergeyklay/bnf-mode.git \
+  ~/.emacs.d/site-lisp/bnf-mode
+@end example
+
+Add this to your init file:
+
+@lisp
+(add-to-list 'load-path "~/.emacs.d/site-lisp/bnf-mode")
+@end lisp
+
+Add @i{either} of the two following lines to your initialization file.
+The first only loads BNF Mode when necessary, the 2nd always during
+startup of GNU Emacs:
+
+@lisp
+(autoload 'bnf-mode "bnf-mode" nil t)
+;; OR
+(require 'bnf-mode)
+@end lisp
+
+@node Usage
+@chapter Usage
+
+By default any file that matches the glob @code{*.bnf} is
+automatically opened in @code{bnf-mode}.  To toggle the mode in the
+current buffer use @kbd{M-x} @code{bnf-mode} @kbd{RET}.
+
+@node Customizing
+@chapter Customizing
+
+@cindex Customizing
+
+There are not so much customization options yet.
+
+To customize @code{abbrev-mode} for @code{bnf-mode}, simple add preffered
+abbreviations to @code{bnf-mode-abbrev-table}.
+
+If you want, you can go without any customizations at all. The above
+settings are the most bang for the buck in terms of customization.  So
+users that typically don't like customize a lot are advised to look at
+these settings first.  To customize BNF Mode options using textual GUI
+system, use the following command: @kbd{M-x} @code{customize-group}
+@kbd{RET} @code{bnf} @kbd{RET}.
+
+@node Project Links
+@chapter Project Links
+
+@menu
+* Bugs Tracker::
+* Change Log::
+@end menu
+
+@node Bugs Tracker
+@section Bugs Tracker
+
+Bug tracking is currently handled using the GitHub
+@uref{https://github.com/sergeyklay/bnf-mode/issues, issue tracker}.
+
+@node Change Log
+@section Change Log
+
+History is tracked in the
+@uref{https://github.com/sergeyklay/bnf-mode/blob/master/NEWS, Git
+repository} rather than in this documentation.
+
+@node Bibliography
+@chapter Bibliography
+
+Below are some links to external resources used when developed BNF Mode:
+
+@itemize @bullet
+@item
+RFC822: Standard for ARPA Internet Text Messages.
+
+@url{https://www.ietf.org/rfc/rfc822.txt}
+
+@item
+RFC5234: Augmented BNF for Syntax Specifications ABNF.
+
+@url{https://www.ietf.org/rfc/rfc5234.txt}
+
+@item
+RFC7405: Case-Sensitive String Support in ABNF.
+
+@url{https://www.ietf.org/rfc/rfc7405.txt}
+
+@item
+Revised Report on the Algorithmic Language Algol 60.
+
+@url{https://www.masswerk.at/algol60/report.htm}
+
+@item
+Wikipedia: Backus–Naur form.
+
+@url{https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form}
+
+@item
+Wikipedia: Extended Backus–Naur form.
+
+@url{https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form}
+
+@item
+Wikipedia: Augmented Backus–Naur form.
+
+@url{https://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_form}
+
+@item
+ISO/IEC 14977: 1996(E).
+
+@url{https://www.cl.cam.ac.uk/~mgk25/iso-14977.pdf}
+
+@item
+EBNF: A Notation to Describe Syntax.
+
+@url{https://www.ics.uci.edu/~pattis/ICS-33/lectures/ebnf.pdf}
+
+@end itemize
+
+@node Index
+@unnumbered Index
+
+@printindex cp
+
+@node Variable Index
+@unnumbered Variable Index
+
+@printindex vr
+
+@bye

@@ -1,0 +1,10 @@
+.codecov.yml
+.dir-locals.el
+.elpaignore
+.gitattributes
+.github
+.gitignore
+Cask
+Makefile
+default.mk
+test

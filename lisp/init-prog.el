@@ -27,5 +27,7 @@
 
 (require 'smartparens-config)
 (smartparens-global-mode)
+
+(require 'bnf-mode)
 (provide 'init-prog)
 ;;; init-prog.el ends here
