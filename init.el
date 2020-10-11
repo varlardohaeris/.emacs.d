@@ -27,7 +27,6 @@
 (require 'init-c-c++)
 (require 'init-python)
 (require 'init-which-key)
-(require 'init-smooth-scrolling)
 (require 'init-dashboard)
 (require 'init-posframe)
 (require 'init-rainbow-delimiters)
