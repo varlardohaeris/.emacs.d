@@ -24,9 +24,9 @@
                          ("melpa" . "http://mirrors.bfsu.edu.cn/elpa/melpa/")))
 
 ;;; Install into separate package dirs for each Emacs version, to prevent bytecode incompatibility
-(setq package-user-dir
-      (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
-                        user-emacs-directory))
+;; (setq package-user-dir
+;;       (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
+;;                         user-emacs-directory))
 
 ;;; Init Use-package
 (unless (package-installed-p 'use-package)
@@ -34,9 +34,14 @@
   (package-install 'use-package))
 (setq use-package-hook-name-suffix nil)
 
+(setq use-package-always-ensure t)
+(setq use-package-always-defer t)
+(setq use-package-always-demand nil)
+(setq use-package-expand-minimally t)
+(setq use-package-verbose t)
+
 
 ;;; Set load path
-
 (defconst my-emacs-d (file-name-as-directory user-emacs-directory)
   "Directory of emacs.d")
 
@@ -57,7 +62,6 @@
                              (expand-file-name dir)))
                          (directory-files my-site-lisp-dir)))
            load-path))))
-
 
 (my-add-subdirs-to-load-path (file-name-as-directory my-site-lisp-dir))
 

@@ -3,7 +3,10 @@
 ;;; Code:
 
 (require 'ivy)
-(setq ivy-use-selectable-prompt t)
+(use-package ivy
+  :config
+  (setq ivy-use-selectable-prompt t))
+
 
 ;; (setq ivy-sort-matches-functions-alist '((t . ivy-fuz-sort-fn)))
 ;; (setq ivy-re-builders-alist '((t . ivy-fuz-regex-fuzzy)))
@@ -11,90 +14,46 @@
 ;;   (require 'ivy-fuz)
 ;;   (add-to-list 'ivy-highlight-functions-alist '(ivy-fuz-regex-fuzzy . ivy-fuz-highlight-fn)))
 
-(require 'swiper)
-	     
-(require 'counsel)
-(counsel-mode 1)
+(use-package swiper)
 
-(require 'counsel-projectile)
-(add-hook 'counsel-mode 'counsel-projectile-mode)
-(setq counsel-projectile-grep-initial-input '(ivy-thing-at-point))
+(use-package counsel
+  :config
+  (counsel-mode 1))
 
-(require 'smex)
+(use-package counsel-projectile
+  :config
+  (add-hook 'counsel-mode 'counsel-projectile-mode)
+  (setq counsel-projectile-grep-initial-input '(ivy-thing-at-point)))
 
-(require 'all-the-icons-ivy-rich)
-(all-the-icons-ivy-rich-mode 1)
-(ivy-rich-mode 1)
+(use-package smex)
 
-(require 'ivy-rich)
-(ivy-rich-mode 1)
-(setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
+(use-package all-the-icons-ivy-rich
+  :config
+  (all-the-icons-ivy-rich-mode 1)
+  (ivy-rich-mode 1))
 
-;; (setq ivy-rich-display-transformers-list '(ivy-switch-buffer 
-;; 					   (:columns ((ivy-rich-switch-buffer-icon 
-;; 						       (:width 2)) 
-;; 						      (ivy-rich-candidate 
-;; 						       (:width 30)) 
-;; 						      (ivy-rich-switch-buffer-size 
-;; 						       (:width 7)) 
-;; 						      (ivy-rich-switch-buffer-indicators 
-;; 						       (:width 4 
-;; 							       :face error 
-;; 							       :align right)) 
-;; 						      (ivy-rich-switch-buffer-major-mode 
-;; 						       (:width 12 
-;; 							       :face warning)) 
-;; 						      (ivy-rich-switch-buffer-project 
-;; 						       (:width 15 
-;; 							       :face success)) 
-;; 						      (ivy-rich-switch-buffer-path 
-;; 						       (:width (lambda (x) 
-;; 								 (ivy-rich-switch-buffer-shorten-path
-;; 								  x
-;; 								  (ivy-rich-minibuffer-width
-;; 								   0.3)))))) 
-;; 						     :predicate (lambda (cand) 
-;; 								  (get-buffer cand)))
-;; 					   counsel-find-file 
-;; 					   (:columns ((ivy-read-file-transformer) 
-;; 						      (ivy-rich-counsel-find-file-truename 
-;; 						       (:face font-lock-doc-face))))
-;; 					   counsel-M-x 
-;; 					   (:columns ((counsel-M-x-transformer 
-;; 						       (:width 40)) 
-;; 						      (ivy-rich-counsel-function-docstring 
-;; 						       (:face font-lock-doc-face)))) ; return docstring of the command
-;; 					   counsel-recentf 
-;; 					   (:columns ((ivy-rich-candidate 
-;; 						       (:width 0.8)) 
-;; 						      (ivy-rich-file-last-modified-time 
-;; 						       (:face font-lock-comment-face)))) ; return last modified time of the file
-;; 					   counsel-describe-function 
-;; 					   (:columns
-;; 					    ((counsel-describe-function-transformer 
-;; 					      (:width 40)) 
-;; 					     (ivy-rich-counsel-function-docstring 
-;; 					      (:face font-lock-doc-face)))) ; return docstring of the function
-;; 					   counsel-describe-variable 
-;; 					   (:columns
-;; 					    ((counsel-describe-variable-transformer 
-;; 					      (:width 40)) 
-;; 					     (ivy-rich-counsel-variable-docstring 
-;; 					      (:face font-lock-doc-face)))) ; return docstring of the variable
-;; 					   ))
+(use-package ivy-rich
+  :config
+  (ivy-rich-mode 1)
+  (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
 
 
+(use-package ivy-xref
+  :config
+  ;; xref initialization is different in Emacs 27 - there are two different
+  ;; variables which can be set rather than just one
+  (when (>= emacs-major-version 27)
+    (setq xref-show-definitions-function #'ivy-xref-show-defs))
+  ;; Necessary in Emacs <27. In Emacs 27 it will affect all xref-based
+  ;; commands other than xref-find-definitions (e.g. project-find-regexp)
+  ;; as well
+  (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
 
-(require 'ivy-xref)
-;; xref initialization is different in Emacs 27 - there are two different
-;; variables which can be set rather than just one
-(when (>= emacs-major-version 27)
-  (setq xref-show-definitions-function #'ivy-xref-show-defs))
-;; Necessary in Emacs <27. In Emacs 27 it will affect all xref-based
-;; commands other than xref-find-definitions (e.g. project-find-regexp)
-;; as well
-(setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
-
-
+(use-package posframe)
+(use-package ivy-posframe
+  :config
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display)))
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+  (ivy-posframe-mode 1))
 (provide 'init-ivy)
 ;;; init-ivy.el ends here

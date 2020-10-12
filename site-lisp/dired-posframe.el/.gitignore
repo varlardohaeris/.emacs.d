@@ -1,5 +1,0 @@
-## .gitignore
-
-*-autoloads.el
-*.elc
-/.keg

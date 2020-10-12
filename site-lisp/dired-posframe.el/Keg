@@ -1,9 +1,0 @@
-;; Keg
-
-(source gnu melpa)
-
-(package
- (dired-posframe
-  (recipe . (dired-posframe :fetcher github :repo "conao3/dired-posframe.el"))))
-
-(dev-dependency cort)

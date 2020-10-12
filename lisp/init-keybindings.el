@@ -1,9 +1,7 @@
 ;;; init-keybindings.el -- init keybindings
 ;;; Commentary:
 ;;; Code:
-
 (global-set-key (kbd "C-w") 'backward-kill-word)
-
 (evil-leader/set-leader "SPC")
 
 (evil-leader/set-key
