@@ -34,12 +34,6 @@
   (package-install 'use-package))
 (setq use-package-hook-name-suffix nil)
 
-(setq use-package-always-ensure t)
-(setq use-package-always-defer t)
-(setq use-package-always-demand nil)
-(setq use-package-expand-minimally t)
-(setq use-package-verbose t)
-
 
 ;;; Set load path
 (defconst my-emacs-d (file-name-as-directory user-emacs-directory)

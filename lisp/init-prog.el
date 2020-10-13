@@ -1,7 +1,6 @@
 ;;; init-prog.el --- config prog mode
 ;;; Commentary:
 ;;; Code:
-
 (use-package 
   flycheck 
   :ensure t 
@@ -64,10 +63,37 @@
 								   'font-lock-variable-name-face)))) graphic-only-plugins-setting)
 
 
-(use-package 
-  smartparens 
-  :ensure t 
-  :hook ('prog-mode . 'smartparens-global-mode))
+(use-package smartparens
+  :init
+  (progn
+    (use-package smartparens-config)
+    (use-package smartparens-ruby)
+    (use-package smartparens-html)
+    (smartparens-global-mode 1)
+    (show-smartparens-global-mode 1))
+  :config
+  (progn
+    (setq smartparens-strict-mode t)
+    (sp-local-pair 'emacs-lisp-mode "`" nil :when '(sp-in-string-p)))
+  :bind
+  (("C-M-k" . sp-kill-sexp-with-a-twist-of-lime)
+   ("C-M-f" . sp-forward-sexp)
+   ("C-M-b" . sp-backward-sexp)
+   ("C-M-n" . sp-up-sexp)
+   ("C-M-d" . sp-down-sexp)
+   ("C-M-u" . sp-backward-up-sexp)
+   ("C-M-p" . sp-backward-down-sexp)
+   ("C-M-w" . sp-copy-sexp)
+   ("M-s" . sp-splice-sexp)
+   ("M-r" . sp-splice-sexp-killing-around)
+   ("C-)" . sp-forward-slurp-sexp)
+   ("C-}" . sp-forward-barf-sexp)
+   ("C-(" . sp-backward-slurp-sexp)
+   ("C-{" . sp-backward-barf-sexp)
+   ("M-S" . sp-split-sexp)
+   ("M-J" . sp-join-sexp)
+   ("C-M-t" . sp-transpose-sexp)))
+
 
 (use-package bnf-mode)
 

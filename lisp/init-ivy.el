@@ -7,7 +7,6 @@
   :config
   (setq ivy-use-selectable-prompt t))
 
-
 ;; (setq ivy-sort-matches-functions-alist '((t . ivy-fuz-sort-fn)))
 ;; (setq ivy-re-builders-alist '((t . ivy-fuz-regex-fuzzy)))
 ;; (with-eval-after-load 'ivy

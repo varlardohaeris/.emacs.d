@@ -5,11 +5,12 @@
 ;;----------------------------------------------------------------------------
 (require 'init-packages)
 (require 'init-utils)
-(require 'init-evil)
+(require 'init-core)
 (require 'init-ivy)
+(require 'init-evil)
+(require 'init-prog)
 (require 'init-org)
 (require 'init-complete)
-(require 'init-prog)
 (require 'init-lsp-mode)
 (require 'init-javascript)
 (when *is-a-mac*
@@ -22,6 +23,6 @@
 (require 'init-common-lisp)
 (require 'init-tools)
 (require 'init-ui)
-(when (file-exists-p custom-file)
-  (load custom-file))
+;; (when (file-exists-p custom-file)
+;;   (load custom-file))
 (provide 'init)
