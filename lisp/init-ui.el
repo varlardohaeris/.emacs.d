@@ -16,7 +16,8 @@
   :ensure t
   :hook (after-init . beacon-mode))
 
-(use-package dired-posframe)
+(use-package dired-posframe
+  :ensure t)
 
 (use-package popwin
   :ensure t
@@ -25,6 +26,7 @@
     (popwin-mode 1)))
 
 (use-package imenu-list
+  :ensure t
   :config
   (setq imenu-list-focus-after-activation t))
 
@@ -72,8 +74,8 @@
   (setq dashboard-set-navigator t))
 
 (use-package doom-modeline
-  :init
-  (doom-modeline-mode 1))
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 (provide 'init-ui)
 ;;; init-base.el ends here

@@ -2,10 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 (use-package lsp-mode
+  :ensure t
   :hook
   (prog-mode . lsp))
 
 (use-package lsp-ui
+  :ensure t
   :hook
   (lsp-mode . lsp-ui)
   :config

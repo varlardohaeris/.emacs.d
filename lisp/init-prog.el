@@ -64,6 +64,7 @@
 
 
 (use-package smartparens
+  :ensure t
   :init
   (progn
     (use-package smartparens-config)
@@ -94,8 +95,8 @@
    ("M-J" . sp-join-sexp)
    ("C-M-t" . sp-transpose-sexp)))
 
-
-(use-package bnf-mode)
+(use-package bnf-mode
+  :ensure t)
 
 (provide 'init-prog)
 ;;; init-prog.el ends here

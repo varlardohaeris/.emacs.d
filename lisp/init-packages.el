@@ -20,8 +20,12 @@
           ("http" . "192.168.0.102:7890")
           ("https" . "192.168.0.102:7890"))))
 
-(setq package-archives '(("gnu" . "http://mirrors.bfsu.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.bfsu.edu.cn/elpa/melpa/")))
+;; (setq package-archives '(("gnu" . "http://mirrors.bfsu.edu.cn/elpa/gnu/")
+;;                         ("melpa" . "http://mirrors.bfsu.edu.cn/elpa/melpa/")))
+;; 
+
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 ;;; Install into separate package dirs for each Emacs version, to prevent bytecode incompatibility
 ;; (setq package-user-dir
@@ -57,15 +61,7 @@
                          (directory-files my-site-lisp-dir)))
            load-path))))
 
-(my-add-subdirs-to-load-path (file-name-as-directory my-site-lisp-dir))
-
-(add-to-list 'load-path "~/.emacs.d/site-lisp/magit/lisp")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/transient/lisp")
-
-(add-to-list 'load-path "~/.emacs.d/site-lisp/treemacs/src/elisp")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/treemacs/src/extra")
-
-(add-to-list 'load-path "~/.emacs.d/site-lisp/utop/src/top")
+;; (my-add-subdirs-to-load-path my-site-lisp-dir)
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

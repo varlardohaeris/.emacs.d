@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package company
+  :ensure t
   :config
   (add-hook 'after-init-hook 'global-company-mode)
 
@@ -24,10 +25,13 @@
   (push 'company-files company-backends))
 
 (use-package company-box
+  :ensure t
   :hook (company-mode . company-box-mode))
 
-(use-package yasnippet)
+(use-package yasnippet
+  :ensure t)
 (use-package yasnippet-snippets
+  :ensure t
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/elpa/yasnippet-snippets-20200909.1058/snippets")))
 (provide 'init-complete)
