@@ -12,5 +12,10 @@
     (add-hook 'c-mode-hook 'eglot-ensure)
     (add-hook 'c++-mode-hook 'eglot-ensure)))
 
+(use-package company-c-headers
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-c-headers))
+
 (provide 'init-c-c++)
 ;;; init-c-c++.el ends here

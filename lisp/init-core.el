@@ -49,6 +49,7 @@
       scroll-preserve-screen-position 'always)
 
 (global-set-key (kbd "RET") 'newline-and-indent)
+
 (setq mouse-yank-at-point nil)
 (setq-default fill-column 120)
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -69,7 +70,6 @@
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
             '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
-
 
 (provide 'init-core)
 ;;; init-core.el ends here

@@ -6,8 +6,6 @@
   :config
   (which-key-mode))
 
-(use-package command-log-mode
-  :ensure t)
 
 (use-package magit
   :ensure t
