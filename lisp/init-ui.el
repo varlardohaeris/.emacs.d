@@ -69,6 +69,7 @@
   (setq dashboard-banner-logo-title
         (concat "Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
   (setq dashboard-center-content t)
+  (setq dashboard-startup-banner 'logo)
   (setq dashboard-set-heading-icons t)
   ;; (setq dashboard-set-file-icons t)
   (setq dashboard-set-navigator t))

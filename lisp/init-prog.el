@@ -3,7 +3,8 @@
 ;;; Code:
 (use-package 
   flycheck 
-  :ensure t 
+  :ensure t
+  :defer t
   :commands (flycheck-mode)
   ;; :hook (prog-mode . flycheck-mode)
   :bind (:map leader-key
@@ -23,7 +24,8 @@
   (push '(progn
 	   (use-package 
 	     flycheck-posframe 
-	     :ensure t 
+	     :ensure t
+	     :defer t
 	     :custom-face (flycheck-posframe-border-face ((t 
 							   (:inherit default)))) 
 	     :hook (flycheck-mode . flycheck-posframe-mode) 
@@ -34,18 +36,21 @@
 												   company-backend))))) 
 	   (use-package 
 	     flycheck-pos-tip 
-	     :ensure t 
+	     :ensure t
+	     :defer t
 	     :defines flycheck-pos-tip-timeout 
 	     :hook (global-flycheck-mode . flycheck-pos-tip-mode) 
 	     :config (setq flycheck-pos-tip-timeout 30)) 
 	   (use-package 
 	     flycheck-popup-tip 
-	     :ensure t 
+	     :ensure t
+	     :defer t
 	     :hook (flycheck-mode . flycheck-popup-tip-mode))) graphic-only-plugins-setting))
 
 (push '(use-package 
 	 lsp-ui 
-	 :ensure t 
+	 :ensure t
+	 :defer t
 	 :hook (lsp-mode . lsp-ui-mode) 
 	 :custom (lsp-ui-doc-delay 1) 
 	 :init (setq lsp-ui-doc-enable t lsp-ui-doc-use-webkit nil lsp-ui-doc-delay 0.2
@@ -67,9 +72,6 @@
   :ensure t
   :init
   (progn
-    (use-package smartparens-config)
-    (use-package smartparens-ruby)
-    (use-package smartparens-html)
     (smartparens-global-mode 1)
     (show-smartparens-global-mode 1))
   :config
@@ -96,6 +98,7 @@
    ("C-M-t" . sp-transpose-sexp)))
 
 (use-package bnf-mode
+  :defer t
   :ensure t)
 
 (provide 'init-prog)

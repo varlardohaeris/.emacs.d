@@ -1,8 +1,5 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (setq graphic-only-plugins-setting ())
-;;----------------------------------------------------------------------------
-;; Adjust garbage collection thresholds during startup, and thereafter
-;;----------------------------------------------------------------------------
 (require 'init-packages)
 (require 'init-utils)
 (require 'init-core)
@@ -15,7 +12,7 @@
 (require 'init-lsp-mode)
 (require 'init-javascript)
 (when *is-a-mac*
-  (require 'init-agda))
+ (require 'init-agda))
 (require 'init-nasm)
 (require 'init-treemacs)
 (require 'init-ocaml)

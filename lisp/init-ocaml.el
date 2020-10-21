@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package tuareg
-  :ensure t
+  :defer t
   :config
   (after-load 'tuareg-mode
     (add-hook 'tuareg-mode-hook #'electric-pair-local-mode)
@@ -22,7 +22,7 @@
 
 
 (use-package utop
-  :ensure t)
+  :defer t)
 
 (provide 'init-ocaml)
 ;;; init-ocaml.el ends here
