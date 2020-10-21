@@ -71,5 +71,35 @@
       (list (format "%s %%S: %%j " (system-name))
             '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
+;; Always load newest byte code
+(setq load-prefer-newer t)
+
+;; reduce the frequency of garbage collection by making it happen on
+;; each 50MB of allocated data (the default is on every 0.76MB)
+(setq gc-cons-threshold 50000000)
+
+;; warn when opening files bigger than 100MB
+(setq large-file-warning-threshold 100000000)
+
+;; quit Emacs directly even if there are running processes
+(setq confirm-kill-processes nil)
+
+;; nice scrolling
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+
+;; mode line settings
+(line-number-mode t)
+(column-number-mode t)
+(size-indication-mode t)
+
+
+;; Wrap lines at 80 characters
+(setq-default fill-column 80)
+
+;; revert buffers automatically when underlying files are changed externally
+(global-auto-revert-mode t)
+
 (provide 'init-core)
 ;;; init-core.el ends here
