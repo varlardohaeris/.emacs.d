@@ -3,7 +3,6 @@
 ;;; Code:
 (use-package eglot
   :ensure t
-  :defer t
   :config
   (progn
     (if *is-a-mac*
@@ -15,7 +14,6 @@
 
 (use-package company-c-headers
   :ensure t
-  :defer t
   :config
   (add-to-list 'company-backends 'company-c-headers))
 
