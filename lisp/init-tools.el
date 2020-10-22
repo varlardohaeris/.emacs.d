@@ -28,9 +28,9 @@
   :config
   (global-hungry-delete-mode))
 
-;; (use-package restart-emacs
-;;   :defer t
-;;   :ensure t)
+(use-package restart-emacs
+  :defer t
+  :ensure t)
 
 (provide 'init-tools)
 ;;; init-tools.el ends here
