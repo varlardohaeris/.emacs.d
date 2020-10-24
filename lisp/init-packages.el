@@ -65,5 +65,12 @@
 
 ;; (my-add-subdirs-to-load-path my-site-lisp-dir)
 
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
+
 (provide 'init-packages)
 ;;; init-packages.el ends here
