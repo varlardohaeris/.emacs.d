@@ -1,4 +1,4 @@
-;;; init-c-c++.el
+;;; init-c-c++.el --- config c, c++ with eglot
 ;;; Commentary:
 ;;; Code:
 (use-package eglot
