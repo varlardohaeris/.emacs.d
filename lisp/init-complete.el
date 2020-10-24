@@ -22,7 +22,8 @@
   (setq company-dabbrev-code-other-buffers 'all)
   (setq company-dabbrev-code-everywhere t)
   (require 'company-files)
-  (push 'company-files company-backends))
+  (push 'company-files company-backends)
+  (add-to-list 'company-backends '(company-capf :with company-dabbrev)))
 
 (use-package company-box
   :ensure t

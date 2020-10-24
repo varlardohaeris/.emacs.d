@@ -1,5 +1,8 @@
+;;; init.el --- entry for my configuration
+;;; Commentary:
+;;; Code:
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(setq graphic-only-plugins-setting ())
 (require 'init-packages)
 (require 'init-utils)
 (require 'init-core)
@@ -23,3 +26,4 @@
 ;; (when (file-exists-p custom-file)
 ;;   (load custom-file))
 (provide 'init)
+;;; init.el ends here
