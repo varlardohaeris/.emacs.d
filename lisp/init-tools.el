@@ -11,25 +11,21 @@
 
 (use-package which-key
   :ensure t
-  :defer t
   :config
   (which-key-mode))
 
 
 (use-package magit
   :ensure t
-  :defer t
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
 
 (use-package hungry-delete
   :ensure t
-  :defer t
   :config
   (global-hungry-delete-mode))
 
 (use-package restart-emacs
-  :defer t
   :ensure t)
 
 (provide 'init-tools)
