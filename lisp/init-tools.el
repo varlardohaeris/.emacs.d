@@ -28,5 +28,10 @@
 (use-package restart-emacs
   :ensure t)
 
+(use-package command-log-mode
+  :ensure t
+  :config
+  (global-command-log-mode))
+
 (provide 'init-tools)
 ;;; init-tools.el ends here
