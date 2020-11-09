@@ -19,9 +19,10 @@
           (cons cmd (thing-at-point 'symbol)))))
     (funcall cmd)))
 
-(defun been/counsel-ag-thing-at-point ()
+(defun been/counsel-projectile-ag-thing-at-point ()
   (interactive)
-  (been/ivy-with-thing-at-point 'counsel-ag))
+  (setq counsel-projectile-ag-initial-input (thing-at-point 'symbol))
+  (been/ivy-with-thing-at-point 'counsel-projectile-ag))
 
 (defun been/swiper-thing-at-point ()
   (interactive)

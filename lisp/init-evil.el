@@ -30,8 +30,8 @@
       "fz"  'been/open-zsh-file
       "mm"  'evilmi-jump-items
       "pf"  'counsel-projectile
-      "ps"  'counsel-ag
-      "pS"  'been/counsel-ag-thing-at-point
+      "ps"  'counsel-projectile-ag
+      "pS"  'been/counsel-projectile-ag-thing-at-point
       "ss"  'swiper
       "sS"  'been/swiper-thing-at-point
       "SPC" 'counsel-M-x
