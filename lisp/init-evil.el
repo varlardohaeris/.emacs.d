@@ -21,6 +21,10 @@
       "cc"  'evilnc-copy-and-comment-lines
       "cp"  'evilnc-comment-or-uncomment-paragraphs
       "cr"  'comment-or-uncomment-region
+      ;; search in current directory
+      "cs"  'been/counsel-ag
+      ;; search in current directory with thing-at-point
+      "cS"  'been/counsel-ag-thing-at-point
       "cv"  'evilnc-toggle-invert-comment-line-by-line
       "fed" 'been/open-init-file
       "ff"  'counsel-find-file
@@ -30,7 +34,7 @@
       "fz"  'been/open-zsh-file
       "mm"  'evilmi-jump-items
       "pf"  'counsel-projectile
-      "ps"  'counsel-projectile-ag
+      "ps"  'been/counsel-projectile-ag
       "pS"  'been/counsel-projectile-ag-thing-at-point
       "ss"  'swiper
       "sS"  'been/swiper-thing-at-point

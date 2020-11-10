@@ -24,6 +24,22 @@
   (setq counsel-projectile-ag-initial-input (thing-at-point 'symbol))
   (been/ivy-with-thing-at-point 'counsel-projectile-ag))
 
+
+(defun been/counsel-projectile-ag ()
+  (interactive)
+  (setq counsel-projectile-ag-initial-input nil)
+  (been/ivy-with-thing-at-point 'counsel-projectile-ag))
+
+
+(defun been/counsel-ag ()
+  (interactive)
+  (counsel-ag nil default-directory))
+
+(defun been/counsel-ag-thing-at-point ()
+  (interactive)
+  (counsel-ag (thing-at-point 'symbol) default-directory))
+
+
 (defun been/swiper-thing-at-point ()
   (interactive)
   (been/ivy-with-thing-at-point 'swiper))
