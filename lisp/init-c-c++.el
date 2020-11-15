@@ -6,11 +6,12 @@
   :config
   (progn
     (if *is-a-mac*
-	(add-to-list 'eglot-server-programs '((c++-mode c-mode) "/usr/local/Cellar/llvm/10.0.1_1/bin/clangd"))
+	(add-to-list 'eglot-server-programs '((c++-mode c-mode) "/usr/local/Cellar/llvm/11.0.0/bin/clangd"))
       (add-to-list 'eglot-server-programs '((c++-mode c-mode) ("clangd-10" "-std=c++2a"))))
 
     (add-hook 'c-mode-hook 'eglot-ensure)
     (add-hook 'c++-mode-hook 'eglot-ensure)))
+
 
 (use-package company-c-headers
   :ensure t

@@ -28,7 +28,6 @@
   (setq counsel-projectile-grep-initial-input '(ivy-thing-at-point)))
 
 (use-package smex
-  :defer t
   :ensure t)
 
 (use-package all-the-icons-ivy-rich
@@ -46,7 +45,6 @@
 
 (use-package ivy-xref
   :ensure t
-  :defer t
   :config
   ;; xref initialization is different in Emacs 27 - there are two different
   ;; variables which can be set rather than just one
