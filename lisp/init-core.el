@@ -101,5 +101,6 @@
 ;; revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
 
+(which-function-mode t)
 (provide 'init-core)
 ;;; init-core.el ends here
