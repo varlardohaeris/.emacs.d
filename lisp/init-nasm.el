@@ -1,4 +1,4 @@
-;;; init-nasm.el
+;;; init-nasm.el -- Nasm mode
 ;;; Commentary:
 ;;; Code:
 (use-package nasm-mode
