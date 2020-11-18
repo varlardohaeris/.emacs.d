@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package eglot
-  :ensure t
+  :load-path "~/.emacs.d/site-lisp/eglot"
   :config
   (progn
     (if *is-a-mac*
