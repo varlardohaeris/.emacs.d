@@ -65,10 +65,16 @@
 
 (use-package counsel
   :after ivy
-  :config (counsel-mode))
+  :bind
+  (("M-x" . counsel-M-x)
+   ("C-x b" . counsel-ibuffer)
+   ("C-x C-f" . counsel-find-file))
+   :config (counsel-mode))
 
 (use-package ivy-rich
   :after ivy
+  :init
+  (ivy-rich-mode 1)
   :custom
   (ivy-virtual-abbreviate 'full
                           ivy-rich-switch-buffer-align-virtual-buffer t
@@ -92,8 +98,25 @@
   :init (which-key-mode)
   :diminish which-key-mode
   :config
-  (setq which-key-idle-delay 0.3))
+  (setq which-key-idle-delay 0.1))
 
+
+(use-package helpful
+  :ensure
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key)
+  )
+
+
+(use-package doom-themes
+  :config
+  (load-theme 'doom-palenight t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -102,7 +125,7 @@
  ;; If there is more than one, they won't work right.
  '(global-command-log-mode t)
  '(package-selected-packages
-   '(ivy-rich which-key rainbow-delimiters counsel swiper doom-modeline ivy command-log-mode use-package)))
+   '(tp doom-themes ivy-rich which-key rainbow-delimiters counsel swiper doom-modeline ivy command-log-mode use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
