@@ -3,4 +3,5 @@ auto-save-list/
 *~
 eshell/
 recentf
-
+transient/
+projectile-bookmarks.eld

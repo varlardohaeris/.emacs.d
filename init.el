@@ -185,20 +185,67 @@
 (been/leader-keys
   "fs" '(save-buffer :which-key "save-buffer"))
 
+(been/leader-keys
+  "ff" '(counsel-find-file :which-key "counsel-find-file"))
+
+(been/leader-keys
+  "ss" '(swiper :which-key "swiper"))
+
 
 (use-package smex)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(global-command-log-mode t)
- '(package-selected-packages
-   '(smex hydra evil-collection evil tp doom-themes ivy-rich which-key rainbow-delimiters counsel swiper doom-modeline ivy command-log-mode use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; toggle between most recent buffers                                     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; http://www.emacswiki.org/emacs/SwitchingBuffers#toc5
+(defun switch-to-previous-buffer ()
+  "Switch to most recent buffer. Repeated calls toggle back and forth between the most recent two buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+(been/leader-keys
+  "TAB" '(switch-to-previous-buffer :which-key "switch-to-previous-buffer"))
+
+(been/leader-keys
+  "wd" '(delete-other-windows :which-key "save-buffer"))
+
+(been/leader-keys
+  "cl" '(comment-dwim :which-key "comment-dwim"))
+
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(setq custom-file "~/.emacs.d/custom.el")
+
+(defun been/open-init-file()
+  "Open init.el."
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+(defun been/open-zsh-file()
+  "Open init.el."
+  (interactive)
+  (find-file "~/.dotfiles/.zshrc"))
+
+(been/leader-keys
+  "fed" '(been/open-init-file :which-key "open init file"))
+
+(been/leader-keys
+  "fz" '(been/open-zsh-file :which-key "open .zshrc"))
+
+;; disable emacs's automatic backup~ file	
+(setq make-backup-files nil)
+
