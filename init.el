@@ -24,6 +24,18 @@
 (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
                          ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
+(defconst *is-a-mac* (eq system-type 'darwin))
+
+(if *is-a-mac*
+      (setq url-proxy-services
+            '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+              ("http" . "127.0.0.1:7890")
+              ("https" . "127.0.0.1:7890")))
+    (setq url-proxy-services
+          '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+            ("http" . "192.168.0.102:7890")
+            ("https" . "192.168.0.102:7890"))))
+
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -57,6 +69,10 @@
   (ivy-use-virtual-buffers t)
   :config (ivy-mode))
 
+;; (global-set-key (kbd "C-S-j") 'counsel-switch-buffer)
+
+
+
 
 (use-package swiper
   :after ivy
@@ -74,14 +90,7 @@
 (use-package ivy-rich
   :after ivy
   :init
-  (ivy-rich-mode 1)
-  :custom
-  (ivy-virtual-abbreviate 'full
-                          ivy-rich-switch-buffer-align-virtual-buffer t
-                          ivy-rich-path-style 'abbrev)
-  :config
-  (ivy-set-display-transformer 'ivy-switch-buffer
-                               'ivy-rich-switch-buffer-transformer))
+  (ivy-rich-mode 1))
 
 
 (use-package doom-modeline
@@ -118,6 +127,67 @@
   :config
   (load-theme 'doom-palenight t))
 
+(use-package all-the-icons)
+  
+(use-package general
+  :config
+  (general-create-definer been/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+
+  (been/leader-keys
+    "t"  '(:ignore t :which-key "toggles")
+    "tt" '(counsel-load-theme :which-key "choose theme")))
+
+
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-i-jump nil)
+  :config
+  (evil-mode 1)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+  ;; Use visual line motions even outside of visual-line-mode buffers
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+  (evil-set-initial-state 'messages-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal))
+
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+(use-package hydra)
+
+(defhydra hydra-text-scale (:timeout 4)
+  "scale text"
+  ("j" text-scale-increase "in")
+  ("k" text-scale-decrease "out")
+  ("f" nil "finished" :exit t))
+
+(been/leader-keys
+  "ts" '(hydra-text-scale/body :which-key "scale text"))
+
+(been/leader-keys
+  "SPC" '(counsel-M-x :which-key "counsel-M-x"))
+
+(been/leader-keys
+  "bb" '(counsel-switch-buffer :which-key "counsel-switch-buffer"))
+
+(been/leader-keys
+  "fs" '(save-buffer :which-key "save-buffer"))
+
+
+(use-package smex)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -125,7 +195,7 @@
  ;; If there is more than one, they won't work right.
  '(global-command-log-mode t)
  '(package-selected-packages
-   '(tp doom-themes ivy-rich which-key rainbow-delimiters counsel swiper doom-modeline ivy command-log-mode use-package)))
+   '(smex hydra evil-collection evil tp doom-themes ivy-rich which-key rainbow-delimiters counsel swiper doom-modeline ivy command-log-mode use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
