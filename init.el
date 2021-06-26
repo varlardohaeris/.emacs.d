@@ -246,6 +246,44 @@
 (been/leader-keys
   "fz" '(been/open-zsh-file :which-key "open .zshrc"))
 
+(been/leader-keys
+  "fr" '(counsel-recentf :which-key "counsel recentf"))
+
 ;; disable emacs's automatic backup~ file	
 (setq make-backup-files nil)
 
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode))
+
+(use-package smartparens
+  :ensure t
+  :config
+  (smartparens-global-mode t))
+
+(defun been/org-mode-setup ()
+  (org-indent-mode)
+  (auto-fill-mode)
+  (visual-line-mode 1)
+  (setq evil-auto-indent nil))
+
+(use-package org
+  :hook (org-mode . been/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾")
+  )
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+(defun been/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . been/org-mode-visual-fill))
