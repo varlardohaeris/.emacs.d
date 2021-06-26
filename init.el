@@ -252,15 +252,6 @@
 ;; disable emacs's automatic backup~ file	
 (setq make-backup-files nil)
 
-(use-package company
-  :ensure t
-  :config
-  (global-company-mode))
-
-(use-package smartparens
-  :ensure t
-  :config
-  (smartparens-global-mode t))
 
 (defun been/org-mode-setup ()
   (org-indent-mode)
@@ -311,3 +302,60 @@
 (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
+
+
+;; (use-package smartparens
+;;   :ensure t
+;;   :config
+;;   (smartparens-global-mode t))
+
+(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+(electric-pair-mode 1)
+(show-paren-mode 1)
+
+
+(defun been/lsp-mode-setup ()
+  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+  (lsp-headerline-breadcrumb-mode))
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook (lsp-mode . been/lsp-mode-setup)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom))
+;; lsp-ui-peek-find-references is really cool !
+
+(use-package lsp-treemacs
+  :after lsp)
+;; lsp-treemacs-symbols && treemacs
+
+(use-package lsp-ivy)
+;; lsp-ivy-workspace-symbol
+;; lsp-treemacs-symbols
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2))
+
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection))
+        (:map lsp-mode-map
+         ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
