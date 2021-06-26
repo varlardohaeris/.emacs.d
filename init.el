@@ -27,14 +27,14 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 (if *is-a-mac*
-      (setq url-proxy-services
-            '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-              ("http" . "127.0.0.1:7890")
-              ("https" . "127.0.0.1:7890")))
     (setq url-proxy-services
           '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-            ("http" . "192.168.0.102:7890")
-            ("https" . "192.168.0.102:7890"))))
+            ("http" . "127.0.0.1:7890")
+            ("https" . "127.0.0.1:7890")))
+  (setq url-proxy-services
+        '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+          ("http" . "192.168.0.102:7890")
+          ("https" . "192.168.0.102:7890"))))
 
 (package-initialize)
 (unless package-archive-contents
@@ -58,6 +58,9 @@
 
 (use-package command-log-mode)
 
+(use-package page-break-lines
+  :diminish
+  :hook (after-init . global-page-break-lines-mode))
 
 (use-package ivy
   :defer 0.1
@@ -68,9 +71,6 @@
   (ivy-count-format "(%d/%d) ")
   (ivy-use-virtual-buffers t)
   :config (ivy-mode))
-
-;; (global-set-key (kbd "C-S-j") 'counsel-switch-buffer)
-
 
 
 
@@ -85,7 +85,7 @@
   (("M-x" . counsel-M-x)
    ("C-x b" . counsel-ibuffer)
    ("C-x C-f" . counsel-find-file))
-   :config (counsel-mode))
+  :config (counsel-mode))
 
 (use-package ivy-rich
   :after ivy
@@ -128,7 +128,7 @@
   (load-theme 'doom-palenight t))
 
 (use-package all-the-icons)
-  
+
 (use-package general
   :config
   (general-create-definer been/leader-keys
@@ -271,8 +271,7 @@
 (use-package org
   :hook (org-mode . been/org-mode-setup)
   :config
-  (setq org-ellipsis " ▾")
-  )
+  (setq org-ellipsis " ▾"))
 
 (use-package org-bullets
   :after org
@@ -287,3 +286,18 @@
 
 (use-package visual-fill-column
   :hook (org-mode . been/org-mode-visual-fill))
+
+
+(use-package dashboard
+  :diminish (dashboard-mode page-break-lines-mode)
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-banner-logo-title "Welcome wujiahua, Happy hacking")
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  )
+
+
+(use-package restart-emacs
+  :ensure t)
