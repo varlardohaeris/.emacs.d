@@ -301,3 +301,8 @@
 
 (use-package restart-emacs
   :ensure t)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
