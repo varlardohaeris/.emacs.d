@@ -211,7 +211,7 @@
   "wd" '(delete-other-windows :which-key "save-buffer"))
 
 (been/leader-keys
-  "cl" '(comment-dwim :which-key "comment-dwim"))
+  "cl" '(evilnc-comment-or-uncomment-lines :which-key "evil nerd comment"))
 
 
 (use-package projectile
@@ -359,3 +359,6 @@
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
+
+(use-package evil-nerd-commenter
+  :bind ("M-/" . evilnc-comment-or-uncomment-lines))
