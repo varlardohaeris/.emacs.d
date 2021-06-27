@@ -317,7 +317,13 @@
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook (lsp-mode . been/lsp-mode-setup)
+  :hook
+  (
+   (lsp-mode . been/lsp-mode-setup)
+   (c-mode . lsp)
+   (c++-mode . lsp)
+   (latex-mode . lsp)
+   )
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
@@ -337,6 +343,14 @@
 ;; lsp-ivy-workspace-symbol
 ;; lsp-treemacs-symbols
 
+
+(use-package dap-mode
+  :bind
+  (:map lsp-mode-map
+        ("<tab>" . company-indent-or-complete-common)))
+
+
+
 (use-package typescript-mode
   :mode "\\.ts\\'"
   :hook (typescript-mode . lsp-deferred)
@@ -350,8 +364,6 @@
   :hook (lsp-mode . company-mode)
   :bind (:map company-active-map
          ("<tab>" . company-complete-selection))
-        ;; (:map lsp-mode-map
-        ;;  ("<tab>" . company-indent-or-complete-common))
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
@@ -385,3 +397,5 @@
   :config
   (auto-package-update-maybe)
   (auto-package-update-at-time "09:00"))
+
+
