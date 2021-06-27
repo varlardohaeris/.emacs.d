@@ -56,22 +56,22 @@
 		eshell-mode-hoo))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(use-package command-log-mode)
+(use-package command-log-mode
+  :commands command-log-mode)
 
 (use-package page-break-lines
   :diminish
   :hook (after-init . global-page-break-lines-mode))
 
 (use-package ivy
-  :defer 0.1
   :diminish
+  :init
+  (ivy-mode)
   :bind (("C-c C-r" . ivy-resume)
          ("C-x B" . ivy-switch-buffer-other-window))
   :custom
   (ivy-count-format "(%d/%d) ")
-  (ivy-use-virtual-buffers t)
-  :config (ivy-mode))
-
+  (ivy-use-virtual-buffers t))
 
 
 (use-package swiper
@@ -94,7 +94,6 @@
 
 
 (use-package doom-modeline
-  :ensure t
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
 
@@ -111,7 +110,6 @@
 
 
 (use-package helpful
-  :ensure
   :custom
   (counsel-describe-function-function #'helpful-callable)
   (counsel-describe-variable-function #'helpful-variable)
@@ -192,7 +190,6 @@
   "ss" '(swiper :which-key "swiper"))
 
 
-(use-package smex)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -346,6 +343,7 @@
   :config
   (setq typescript-indent-level 2))
 
+(use-package smex)
 (use-package company
   :init
   (add-hook 'after-init-hook 'global-company-mode)
@@ -378,7 +376,6 @@
 
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
-
 
 (use-package auto-package-update
   :custom
