@@ -425,3 +425,9 @@
     (add-hook 'caml-mode-hook 'merlin-mode t)
     ;; Use opam switch to lookup ocamlmerlin binary
     (setq merlin-command 'opam)))
+
+
+;; smlnl
+
+(use-package sml-mode
+  :commands sml-run)
