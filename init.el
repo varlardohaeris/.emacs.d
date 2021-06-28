@@ -330,6 +330,10 @@
   ;; set clangd path on mac
   (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
 
+(use-package flycheck
+  :after lsp-mode
+  :init (global-flycheck-mode))
+
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :custom
