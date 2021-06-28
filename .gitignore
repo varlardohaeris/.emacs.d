@@ -11,3 +11,4 @@ bookmarks
 .last-package-update-day
 var/
 .extension/
+.dap-breakpoints

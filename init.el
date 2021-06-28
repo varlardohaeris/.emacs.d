@@ -14,8 +14,6 @@
 (set-face-attribute 'default nil :font "Jetbrains Mono" :height 200)
 (load-theme 'tango-dark)
 
-;; make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 
 ;; Initialize package sources
@@ -147,6 +145,7 @@
   (setq evil-want-C-i-jump nil)
   :config
   (evil-mode 1)
+  (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 
@@ -403,3 +402,6 @@
 (use-package hungry-delete
   :init
   (global-hungry-delete-mode))
+
+;; make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
