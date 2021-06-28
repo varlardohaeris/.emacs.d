@@ -326,7 +326,9 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
-  (lsp-enable-which-key-integration t))
+  (lsp-enable-which-key-integration t)
+  ;; set clangd path on mac
+  (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
@@ -361,8 +363,8 @@
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :hook (lsp-mode . company-mode)
-  :bind (:map company-active-map
-         ("<tab>" . company-complete-selection))
+  ;; :bind (:map company-active-map
+  ;;        ("<tab>" . company-complete-selection))
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
