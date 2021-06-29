@@ -321,6 +321,7 @@
    (lsp-mode . been/lsp-mode-setup)
    (c-mode . lsp)
    (c++-mode . lsp)
+   (js-mode . lsp)
    (latex-mode . lsp)
    )
   :init
