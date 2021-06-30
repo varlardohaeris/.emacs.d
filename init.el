@@ -10,6 +10,7 @@
 
 (setq visible-bell t)
 
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (set-face-attribute 'default nil :font "Jetbrains Mono" :height 200)
 (load-theme 'tango-dark)
