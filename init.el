@@ -15,6 +15,9 @@
 (set-face-attribute 'default nil :font "Jetbrains Mono" :height 200)
 (load-theme 'tango-dark)
 
+;; set transparent
+(set-frame-parameter nil 'alpha '(90 .100))
+
 
 
 ;; Initialize package sources
