@@ -325,7 +325,7 @@
    (c-mode . lsp)
    (c++-mode . lsp)
    (js-mode . lsp)
-   (latex-mode . lsp)
+   (LaTeX-mode . lsp)
    )
   :init
   (setq lsp-keymap-prefix "C-c l")
