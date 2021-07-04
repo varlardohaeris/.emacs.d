@@ -446,3 +446,9 @@
 
 (use-package sml-mode
   :commands sml-run)
+
+;; rust
+(use-package rust-mode
+  :hook (rust-mode . lsp)
+  :config
+  (setq rustic-format-on-save t))
