@@ -12,3 +12,4 @@ bookmarks
 var/
 .extension/
 .dap-breakpoints
+flycheck_init.el
