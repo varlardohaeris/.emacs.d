@@ -1,6 +1,7 @@
 ;; clean up emacs's user interface, make it more minimal
 (setq inhibit-startup-message t)
 (setq package-check-signature nil)
+(global-auto-revert-mode t)
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
