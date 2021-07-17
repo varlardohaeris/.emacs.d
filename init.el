@@ -25,9 +25,9 @@
 ;; Initialize package sources
 (require 'package)
 
-(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
-
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 (if *is-a-mac*
@@ -60,9 +60,9 @@
 		eshell-mode-hoo))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(use-package exec-path-from-shell
-  :ensure
-  :init (exec-path-from-shell-initialize))
+;; (use-package exec-path-from-shell
+;;   :ensure
+;;   :init (exec-path-from-shell-initialize))
 
 (use-package command-log-mode
   :commands command-log-mode)
@@ -103,9 +103,6 @@
   (ivy-rich-mode 1))
 
 
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
 
 
 (use-package rainbow-delimiters
@@ -131,11 +128,17 @@
   )
 
 
+(use-package all-the-icons)
+
 (use-package doom-themes
   :config
   (load-theme 'doom-palenight t))
 
-(use-package all-the-icons)
+(use-package doom-modeline
+      :ensure t
+      :defer t
+      :hook (after-init . doom-modeline-init))
+
 
 (use-package general
   :config
@@ -340,8 +343,11 @@
   (setq lsp-keymap-prefix "C-c l")
   :config
   (lsp-enable-which-key-integration t)
+  (if *is-a-mac*
+      (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
+    (setq lsp-clients-clangd-executable "clangd"))
   ;; set clangd path on mac
-  (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"))
+  )
 
 (use-package flycheck
   :after lsp-mode
