@@ -17,8 +17,8 @@
 (set-face-attribute 'default nil :font "Jetbrains Mono" :height 200)
 (load-theme 'tango-dark)
 
-;; set transparent
-(set-frame-parameter nil 'alpha '(90 .100))
+;; ;; set transparent
+;; (set-frame-parameter nil 'alpha '(90 .100))
 
 
 
@@ -37,8 +37,8 @@
             ("https" . "127.0.0.1:7890")))
   (setq url-proxy-services
         '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-          ("http" . "192.168.0.102:7890")
-          ("https" . "192.168.0.102:7890"))))
+          ("http" . "192.168.0.105:7890")
+          ("https" . "192.168.0.105:7890"))))
 
 (package-initialize)
 (unless package-archive-contents
